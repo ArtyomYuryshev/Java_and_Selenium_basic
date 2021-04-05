@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1">
+
+    <!-- запуск не параметризированных тестов -->
+    <test name = "homeWork8Test1" parallel = "methods" thread-count = "2">
+        <groups>
+            <run>
+                <exclude name = "paramsGroup"/>
+            </run>
+        </groups>
+        <classes>
+            <class name = "course1.penTest.PenTest" />
+        </classes>
+    </test>
+
+    <!-- запуск параметризированных тестов -->
+    <test name = "homeWork8Test2" parallel = "methods" thread-count = "2">
+        <parameter name = "someInk" value = "1000" />
+        <parameter name = "someSize" value = "1.0"/>
+        <parameter name = "someColor" value = "Red"/>
+        <groups>
+            <run>
+                <include name = "paramsGroup"/>
+            </run>
+        </groups>
+        <classes>
+            <class name = "course1.penTest.PenTest" />
+        </classes>
+    </test>
+
+</suite>
